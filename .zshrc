@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -68,7 +68,7 @@ SPACESHIP_PROMPT_ORDER=(
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm svn node npm ant docker github z jump cargo rust yarn zsh-vi-mode virtualenv)
+plugins=(git nvm svn node npm ant docker github z github jump cargo rust yarn zsh-vi-mode virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,7 +90,12 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Load aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -110,13 +115,14 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
-export PATH=~/bin:~/.local/bin:$PATH
 
 autoload -Uz compinit
 compinit
+
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
 fpath=($fpath "~/.zfunctions")
+zstyle ':completion:*:*:make:*' tag-order 'targets'
 
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit

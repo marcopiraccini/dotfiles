@@ -62,10 +62,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " linting engine
 Plug 'w0rp/ale'
 
+
 " Dracula theme
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'matze/vim-move'
+
+" https://github.com/preservim/nerdcommenter
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
@@ -114,14 +118,14 @@ let g:ale_sign_warning = '⚠'
 " fixer configurations
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
 \   'rust': ['rustfmt'],
 \}
 
 "linters
 let g:ale_linters = {
 \   'rust': ['rls'],
-\   'javascript': ['eslint'],
-\   'typescript': ['tslint'] 
+\   'javascript': ['eslint']
 \}
 let g:ale_rust_rls_config = {'rust': {'clippy_preference': 'on'}}
 let g:ale_rust_rls_toolchain = 'stable'
@@ -291,8 +295,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -395,3 +399,7 @@ map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 " noremap <Down> <NOP>
 " noremap <Left> <NOP>
 " noremap <Right> <NOP>
+"
+
+" Clear last search highlighting with space in normal mode
+map <Space> :noh<cr>
