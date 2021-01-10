@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -114,7 +114,6 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
-
 autoload -Uz compinit
 compinit
 
@@ -123,9 +122,4 @@ kitty + complete setup zsh | source /dev/stdin
 fpath=($fpath "~/.zfunctions")
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
-
-alias ssh='TERM=xterm ssh'
 
