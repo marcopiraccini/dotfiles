@@ -122,4 +122,4 @@ kitty + complete setup zsh | source /dev/stdin
 fpath=($fpath "~/.zfunctions")
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 
-
+alias ssh='TERM=xterm ssh'
