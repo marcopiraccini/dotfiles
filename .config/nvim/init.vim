@@ -71,6 +71,12 @@ Plug 'matze/vim-move'
 " https://github.com/preservim/nerdcommenter
 Plug 'preservim/nerdcommenter'
 
+" https://github.com/airblade/vim-gitgutter/
+Plug 'airblade/vim-gitgutter'
+
+" https://github.com/itchyny/lightline.vim
+Plug 'itchyny/lightline.vim'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""
