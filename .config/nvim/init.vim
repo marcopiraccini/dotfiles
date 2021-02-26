@@ -62,7 +62,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " linting engine
 Plug 'w0rp/ale'
 
-
 " Dracula theme
 Plug 'dracula/vim', { 'as': 'dracula' }
 
