@@ -90,7 +90,7 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 " DO NOT close NERDTree after a file is opened
 let g:NERDTreeQuitOnOpen=0
 
-" ctrlp
+  " ctrlp
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'] " only show files that are not ignored by git
 
 
@@ -384,7 +384,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " => Buffers
 " Remap CRTL-\ for switching buffers + hidden (so i can switch unsaved)
 """""""""""""""""""""""""""""""""""""""""""""""
-
 set wildchar=<Tab> wildmenu wildmode=full
 set wildcharm=<C-Z>
 nnoremap <C-\> :b <C-Z>
