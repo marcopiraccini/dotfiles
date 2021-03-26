@@ -67,14 +67,17 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'matze/vim-move'
 
-" https://github.com/preservim/nerdcommenter
-Plug 'preservim/nerdcommenter'
+" Commentary
+Plug 'tpope/vim-commentary'
 
 " https://github.com/airblade/vim-gitgutter/
 Plug 'airblade/vim-gitgutter'
 
 " https://github.com/itchyny/lightline.vim
 Plug 'itchyny/lightline.vim'
+
+Plug 'leafOfTree/vim-svelte-plugin'
+
 
 call plug#end()
 
