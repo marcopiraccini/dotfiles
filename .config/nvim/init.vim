@@ -110,14 +110,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 
 " fix files on save
-let g:ale_fix_on_save = 1 
-" lint after 1500ms after changes are made both on insert mode and normal mode
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_delay = 1500
+let g:ale_fix_on_save = 1
 
-" trigger the linting/ fix
-nmap <leader>f :ALEFix<CR>
-nmap <leader>l :ALELint<CR>
+" lint after 1000ms after changes are made both on insert mode and normal mode
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_delay = 1000
 
 " use emojis for errors and warnings
 let g:ale_sign_error = '✗'
@@ -125,19 +122,24 @@ let g:ale_sign_warning = '⚠'
 
 " fixer configurations
 let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
 \   'rust': ['rustfmt'],
+\   'typescriptreact': ['prettier', 'eslint']
 \}
 
-"linters
+"linters for rust
 let g:ale_linters = {
 \   'rust': ['rls'],
 \   'javascript': ['eslint']
 \}
 let g:ale_rust_rls_config = {'rust': {'clippy_preference': 'on'}}
 let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_fix_on_save = 1
+
+" trigger the linting/ fix
+nmap <leader>f :ALEFix<CR>
+nmap <leader>l :ALELint<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Visual Related Configs
