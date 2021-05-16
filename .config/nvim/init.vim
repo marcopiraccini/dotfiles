@@ -19,12 +19,6 @@ set listchars=tab:→\ ,trail:·,nbsp:·
 set mouse=a     " for copying with mouse
 set background=dark
 
-" quicker moves with crtl
-nmap <c-j> 5j
-nmap <c-k> 5k
-nmap <c-l> 5l
-nmap <c-h> 5h
-
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins List
 """""""""""""""""""""""""""""""""""""""""""""""
