@@ -47,9 +47,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" ctrlp.vim
-Plug 'kien/ctrlp.vim'
-
 " .editorconfig
 Plug 'editorconfig/editorconfig-vim'
 
@@ -77,6 +74,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 
 Plug 'leafOfTree/vim-svelte-plugin'
+
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 
 call plug#end()
@@ -140,6 +141,19 @@ let g:ale_rust_rls_toolchain = 'stable'
 " trigger the linting/ fix
 nmap <leader>f :ALEFix<CR>
 nmap <leader>l :ALELint<CR>
+
+
+" FZF "
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
+nnoremap <silent> <Leader>/ :BLines<CR>
+nnoremap <silent> <Leader>' :Marks<CR>
+nnoremap <silent> <Leader>g :Commits<CR>
+nnoremap <silent> <Leader>H :Helptags<CR>
+nnoremap <silent> <Leader>hh :History<CR>
+nnoremap <silent> <Leader>h: :History:<CR>
+nnoremap <silent> <Leader>h/ :History/<CR>
+nnoremap <silent> <C-p> :GFiles<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Visual Related Configs
