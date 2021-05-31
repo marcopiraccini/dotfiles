@@ -53,9 +53,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " linting engine
 Plug 'w0rp/ale'
 
-" Dracula theme
-Plug 'dracula/vim', { 'as': 'dracula' }
-
 Plug 'matze/vim-move'
 
 " Commentary
@@ -158,11 +155,12 @@ nnoremap <silent> <C-p> :GFiles<cr>
 set t_Co=256
 
 " set colorscheme
-colorscheme dracula
+colorscheme torte
 
 
 " long lines as just one line (have to scroll horizontally)
-set nowrap
+" set nowrap
+set wrap
 
 " line numbers
 set relativenumber
