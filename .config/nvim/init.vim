@@ -155,7 +155,7 @@ nnoremap <silent> <C-p> :GFiles<cr>
 set t_Co=256
 
 " set colorscheme
-colorscheme torte
+colorscheme nord
 
 
 " long lines as just one line (have to scroll horizontally)
