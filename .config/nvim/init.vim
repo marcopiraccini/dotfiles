@@ -62,13 +62,16 @@ Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 
 " https://github.com/itchyny/lightline.vim
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 
 Plug 'leafOfTree/vim-svelte-plugin'
 
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 
 call plug#end()
