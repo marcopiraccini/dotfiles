@@ -18,6 +18,7 @@ set list
 set listchars=tab:→\ ,trail:·,nbsp:·
 set mouse=a     " for copying with mouse
 set background=dark
+set cmdheight=4     " more space for long errors (TS, rust...)
 
 """""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins List
