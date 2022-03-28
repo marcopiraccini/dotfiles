@@ -75,6 +75,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Taskwarrior
+Plug 'xarthurx/taskwarrior.vim'
 
 call plug#end()
 
@@ -173,8 +175,7 @@ set t_Co=256
 colorscheme nord
 
 
-" long lines as just one line (have to scroll horizontally)
-" set nowrap
+" long lines wrapped
 set wrap
 
 " line numbers
