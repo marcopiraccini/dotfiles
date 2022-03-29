@@ -78,6 +78,9 @@ Plug 'vim-airline/vim-airline-themes'
 " Taskwarrior
 Plug 'xarthurx/taskwarrior.vim'
 
+" Github pilot
+Plug 'github/copilot.vim'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""
