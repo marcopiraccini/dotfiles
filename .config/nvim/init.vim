@@ -131,7 +131,7 @@ let g:ale_fixers = {
 \   'typescriptreact': ['prettier', 'eslint']
 \}
 
-"linters for rust
+"linters
 let g:ale_linters = {
 \   'rust': ['rls'],
 \   'javascript': ['eslint']
