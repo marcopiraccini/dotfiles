@@ -125,10 +125,10 @@ let g:ale_sign_warning = '⚠'
 " fixer configurations
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier'],
+\   'javascript': ['prettier', 'standard'],
 \   'typescript': ['prettier'],
 \   'rust': ['rustfmt'],
-\   'typescriptreact': ['prettier', 'eslint']
+\   'typescriptreact': ['prettier', 'eslint', 'standard']
 \}
 
 "linters
