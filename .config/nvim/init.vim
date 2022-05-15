@@ -81,6 +81,9 @@ Plug 'xarthurx/taskwarrior.vim'
 " Github pilot
 Plug 'github/copilot.vim'
 
+" https://github.com/embear/vim-localvimrc
+Plug 'embear/vim-localvimrc'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -134,7 +137,7 @@ let g:ale_fixers = {
 "linters
 let g:ale_linters = {
 \   'rust': ['rls'],
-\   'javascript': ['eslint']
+\   'javascript': ['eslint', 'standard']
 \}
 let g:ale_rust_rls_config = {'rust': {'clippy_preference': 'on'}}
 let g:ale_rust_rls_toolchain = 'stable'
@@ -164,6 +167,15 @@ nnoremap <silent> <C-p> :call FZFOpen(':GFiles')<CR>
 nnoremap <silent> <Leader>f :call FZFOpen(':Files')<CR>
 " Lines in current buffer
 nnoremap <silent> <Leader>/ :BLines<CR>
+
+" localvimrc "
+" enabled by default
+" https://github.com/embear/vim-localvimrc
+let g:localvimrc_enable=1
+let g:localvimrc_persistence_file="/home/marco/.localvimrc"
+let g:localvimrc_ask=0
+let g:localvimrc_sandbox=0
+let g:localvimrc_persistent=2
 
 
 """""""""""""""""""""""""""""""""""""""""""""""
