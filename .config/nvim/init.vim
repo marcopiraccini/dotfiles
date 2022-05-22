@@ -84,6 +84,8 @@ Plug 'github/copilot.vim'
 " https://github.com/embear/vim-localvimrc
 Plug 'embear/vim-localvimrc'
 
+Plug 'plasticboy/vim-markdown'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""
