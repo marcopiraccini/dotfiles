@@ -1,12 +1,20 @@
 {
-    "suggest.autoTrigger": "trigger",
-    "suggest.minTriggerInputLength": 2,
-    "suggest.snippetIndicator": "►",
-    "diagnostic.enable": false,
-    "diagnostic.displayByAle": true,
-    "javascript.suggestionActions.enabled": false,
-    "typescript.suggestionActions.enabled": false,
-    "javascript.suggest.autoImports": true,
-    "typescript.suggest.autoImports": true,
-    "suggest.enablePreselect": true
+  "coc.source.emoji.filetypes": ["markdown"],
+  "diagnostic": {
+    "enable": true,
+    "errorSign": "✘",
+    "warningSign": "⚠",
+    "infoSign": "ⓘ",
+    "enableMessage": "always",
+    "messageTarget": "float",
+    "virtualText": false,
+    "checkCurrentLine": true
+  },
+  "suggest": {
+    "autoTrigger": "trigger",
+    "minTriggerInputLength": 2,
+    "snippetIndicator": "►"
+  },
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false
 }

@@ -86,6 +86,9 @@ Plug 'embear/vim-localvimrc'
 
 Plug 'plasticboy/vim-markdown'
 
+" GraphQL Syntax Highlight
+Plug 'jparise/vim-graphql'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -130,16 +133,16 @@ let g:ale_sign_warning = '⚠'
 " fixer configurations
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier', 'standard'],
+\   'javascript': ['standard', 'prettier'],
 \   'typescript': ['prettier'],
 \   'rust': ['rustfmt'],
-\   'typescriptreact': ['prettier', 'eslint', 'standard']
+\   'typescriptreact': ['prettier', 'standard', 'eslint']
 \}
 
 "linters
 let g:ale_linters = {
 \   'rust': ['rls'],
-\   'javascript': ['eslint', 'standard']
+\   'javascript': ['standard', 'eslint']
 \}
 let g:ale_rust_rls_config = {'rust': {'clippy_preference': 'on'}}
 let g:ale_rust_rls_toolchain = 'stable'
@@ -315,6 +318,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 nmap <silent> <leader>j <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>k <Plug>(coc-diagnostic-next)
 
+let g:coc_global_extensions = ['coc-emoji', 'coc-json', 'coc-yaml']
+
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
@@ -343,14 +348,6 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 " xmap <leader>f  <Plug>(coc-format-selected)
 " nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
