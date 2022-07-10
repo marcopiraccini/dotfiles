@@ -192,7 +192,7 @@ let g:localvimrc_persistent=2
 set t_Co=256
 
 " set colorscheme
-colorscheme nord
+colorscheme elflord
 
 
 " long lines wrapped
