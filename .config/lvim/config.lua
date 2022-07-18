@@ -206,10 +206,10 @@ lvim.keys.normal_mode["<s-tab>"] = ":if &modifiable && !&readonly && &modified <
 
 -- Disable tsserver and enable eslint for TS
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "eslint", "tsserver" })
-local eslint_opts = {
+local tsserver_opts = {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 }
-require("lvim.lsp.manager").setup("eslint", eslint_opts)
+require("lvim.lsp.manager").setup("tsserver", tsserver_opts)
 
 
 local formatters = require "lvim.lsp.null-ls.formatters"
