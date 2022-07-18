@@ -214,3 +214,9 @@ lvim.plugins = {
 -- Can not be placed into the config method of the plugins.
 lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
 table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
+
+-- ignore folders in telescope search
+-- require('telescope').setup { defaults = { file_ignore_patterns = { "node_modules" } } }
+
+-- Don'tshow the splash
+lvim.builtin.alpha.active = false
