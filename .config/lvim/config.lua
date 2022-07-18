@@ -40,8 +40,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --     ["<C-j>"] = actions.move_selection_next,
 --     ["<C-k>"] = actions.move_selection_previous,
 --   },
--- }
-
+--
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
@@ -63,10 +62,40 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
+lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFindFileToggle<CR>", "Explorer" }
+lvim.builtin.alpha.dashboard.section.header.val = {
+  "",
+  "",
+  [[  ____             _                ]],
+  [[ |  _ \  __ _ _ __| | ____ ___   __ ]],
+  [[ | | | |/ _` | '__| |/ / _` \ \ / / ]],
+  [[ | |_| | (_| | |  |   < (_| |\ V /  ]],
+  [[ |____/ \__,_|_|  |_|\_\__,_| \_/   ]],
+  [[                                    ]],
+  "",
+  "",
+}
+
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
+  "cpp",
+  "cmake",
+  "commonlisp",
+  "dart",
+  "dockerfile",
+  "fish",
+  "go",
+  "gomod",
+  "graphql",
+  "html",
+  "jsdoc",
+  "kotlin",
+  "r",
+  "ruby",
+  "scala",
+  "vim",
   "javascript",
   "json",
   "lua",
@@ -74,9 +103,12 @@ lvim.builtin.treesitter.ensure_installed = {
   "typescript",
   "tsx",
   "css",
+  "svelte",
   "rust",
+  "toml",
   "java",
   "yaml",
+  "norg",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -216,4 +248,4 @@ table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
 -- require('telescope').setup { defaults = { file_ignore_patterns = { "node_modules" } } }
 
 -- Don'tshow the splash
-lvim.builtin.alpha.active = false
+-- lvim.builtin.alpha.active = false
