@@ -174,3 +174,11 @@ lvim.keys.normal_mode["<s-tab>"] = ":if &modifiable && !&readonly && &modified <
 -- To close a buffer witouth closing VIM, see: https://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
 --
 lvim.keys.normal_mode["<leader>q"] = " :bp<bar>sp<bar>bn<bar>bd<CR>"
+
+
+-- Disable TSDrtbrt for javascript
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
+local tsserver_opts = {
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+}
+require("lvim.lsp.manager").setup("tsserver", tsserver_opts)
