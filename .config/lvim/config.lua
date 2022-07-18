@@ -182,3 +182,21 @@ local tsserver_opts = {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 }
 require("lvim.lsp.manager").setup("tsserver", tsserver_opts)
+
+
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { name = "standardjs" },
+}
+
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { name = "standardjs" },
+}
+
+-- local code_actions = require "lvim.lsp.null-ls.code_actions"
+-- code_actions.setup {
+--   {
+--     name = "proselint"
+--   },
+-- }
