@@ -172,17 +172,18 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.keys.normal_mode["<tab>"] = ":if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>"
 lvim.keys.normal_mode["<s-tab>"] = ":if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>"
 
--- Disable tsserver for javascript
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
-local tsserver_opts = {
+-- Disable tsserver and enable eslint for TS
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "eslint", "tsserver" })
+local eslint_opts = {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 }
-require("lvim.lsp.manager").setup("tsserver", tsserver_opts)
+require("lvim.lsp.manager").setup("eslint", eslint_opts)
 
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { name = "standardjs" },
+  { name = "prettier" },
 }
 
 local linters = require "lvim.lsp.null-ls.linters"
