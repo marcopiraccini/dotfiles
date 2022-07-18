@@ -1,13 +1,3 @@
---[[
-lvim is the global options object
-
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
@@ -114,7 +104,11 @@ lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
 table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
 
 -- ignore folders in telescope search
--- require('telescope').setup { defaults = { file_ignore_patterns = { "node_modules" } } }
+require 'telescope'.setup {
+  defaults = {
+    file_ignore_patterns = { "^./.git/", "^node_modules/", "^vendor/" },
+  }
+}
 
 -- Disable tsserver and enable eslint for TS
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "eslint", "tsserver" })
