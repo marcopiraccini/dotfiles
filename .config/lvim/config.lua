@@ -103,13 +103,6 @@ lvim.plugins = {
 lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
 table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
 
--- ignore folders in telescope search
-require 'telescope'.setup {
-  defaults = {
-    file_ignore_patterns = { "^./.git/", "^node_modules/", "^vendor/" },
-  }
-}
-
 -- Disable tsserver and enable eslint for TS
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "eslint", "tsserver" })
 -- local tsserver_opts = {

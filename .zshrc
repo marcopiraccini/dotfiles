@@ -112,7 +112,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
+  alias vim='lvim'
 fi
 
 autoload -Uz compinit
@@ -124,7 +124,6 @@ fpath=($fpath "~/.zfunctions")
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 
 alias ssh='TERM=xterm ssh'
-
 
 source ~/.profile
 
