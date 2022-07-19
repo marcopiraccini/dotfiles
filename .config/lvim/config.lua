@@ -2,12 +2,10 @@
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "nord"
--- to disable icons and use a minimalist setup, uncomment the following
--- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- add your own keymapping
+-- CTRL-S to save
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 lvim.builtin.alpha.active = true
@@ -71,8 +69,9 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- MARCO -----------------------------------------
 -- Map tab and shift-tab for buffer switching
-lvim.keys.normal_mode["<tab>"] = ":if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>"
-lvim.keys.normal_mode["<s-tab>"] = ":if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>"
+-- DISABLED, use H/L instead and <tab> for code completion
+-- lvim.keys.normal_mode["<tab>"] = ":if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>"
+-- lvim.keys.normal_mode["<s-tab>"] = ":if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>"
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
