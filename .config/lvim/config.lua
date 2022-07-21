@@ -7,6 +7,8 @@ lvim.colorscheme = "nord"
 lvim.leader = "space"
 -- CTRL-S to save
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- CTRL-N to toggle the tree
+lvim.keys.normal_mode["<C-n>"] = ":NvimTreeToggle<cr>"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
