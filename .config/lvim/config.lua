@@ -66,19 +66,15 @@ lvim.builtin.treesitter.ensure_installed = {
   "norg",
 }
 
-lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
--- MARCO -----------------------------------------
--- Map tab and shift-tab for buffer switching
--- DISABLED, use H/L instead and <tab> for code completion
--- lvim.keys.normal_mode["<tab>"] = ":if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>"
--- lvim.keys.normal_mode["<s-tab>"] = ":if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>"
+-- Map H/L for buffer switching
+lvim.keys.normal_mode["L"] = ":if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>"
+lvim.keys.normal_mode["H"] = ":if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>"
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { name = "standardjs" },
-  { name = "prettier" },
+  { name = "standardjs" }
 }
 
 -- COPILOT
@@ -104,16 +100,16 @@ lvim.plugins = {
 lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
 table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
 
--- Disable tsserver and enable eslint for TS
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "eslint", "tsserver" })
--- local tsserver_opts = {
---   filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
--- }
--- require("lvim.lsp.manager").setup("tsserver", tsserver_opts)
+-- enable TS only on Ts files
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
+local tsserver_opts = {
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+}
+require("lvim.lsp.manager").setup("tsserver", tsserver_opts)
 
 -- disable the TS warnings
-require 'lspconfig'.tsserver.setup {
-  handlers = {
-    ['textDocument/publishDiagnostics'] = function() end,
-  },
-}
+-- require 'lspconfig'.tsserver.setup {
+--   handlers = {
+--     ['textDocument/publishDiagnostics'] = function() end,
+--   },
+-- }

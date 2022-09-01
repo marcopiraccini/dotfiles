@@ -121,5 +121,3 @@ Macro:
 Comments:
 - Using commentary plugin, `gcc` toggles, `gc` in visual mode
 
-Themes:
-- :Colors - to change theme
