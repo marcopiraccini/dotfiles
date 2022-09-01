@@ -98,8 +98,8 @@ more supported objects:
  Mark positions:
  In normal mode: ma (or b, c, etc)
  jump: 'a
- Se si usano lettere maiuscole i mark sono globali.
- Per vedere tutti i mark: `:marks`
+ If you use uppercase, marks are global. 
+To see all marks  (defaults included): `'` or  `:marks`
 
  Dot command:
  Repeat the last change.
@@ -109,17 +109,17 @@ more supported objects:
  - n (to select the next let)
  - . , etc
 
- Muovere linee:
+Move lines:
 - alt + j/k
 
 Macro:
-- Iniziare il recording con `qa` (per registrare la macro `a`).
-- Eseguire le azioni
-- Terminare con `q`
-- Eseguire con `@a`
+- Start recording macro with `qa` (for the `a` macro)
+- Execute the actions
+- End with `q` 
+- Execute the macro with `q@`
 
 Comments:
 - Using commentary plugin, `gcc` toggles, `gc` in visual mode
 
 Themes:
-- :Colors - per cambiare theme
+- :Colors - to change theme
