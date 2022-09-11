@@ -116,7 +116,7 @@ Macro:
 - Start recording macro with `qa` (for the `a` macro)
 - Execute the actions
 - End with `q` 
-- Execute the macro with `q@`
+- Execute the macro with `@a`
 
 Comments:
 - Using commentary plugin, `gcc` toggles, `gc` in visual mode
