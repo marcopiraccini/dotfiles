@@ -113,3 +113,7 @@ require("lvim.lsp.manager").setup("tsserver", tsserver_opts)
 --     ['textDocument/publishDiagnostics'] = function() end,
 --   },
 -- }
+
+-- TEMPORARY, see: https://github.com/LunarVim/LunarVim/issues/2993#issuecomment-1239178800
+lvim.builtin.bufferline.options.indicator_icon = nil
+lvim.builtin.bufferline.options.indicator = { style = "icon", icon = "▎" }
