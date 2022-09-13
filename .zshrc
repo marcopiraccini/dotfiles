@@ -133,3 +133,8 @@ export FZF_DEFAULT_COMMAND="find -L"
 
 export FLYCTL_INSTALL="$HOME/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/marco/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end%     
