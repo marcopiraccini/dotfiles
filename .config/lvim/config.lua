@@ -15,7 +15,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 
 lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFindFileToggle<CR>", "Explorer" }
 lvim.builtin.alpha.dashboard.section.header.val = {
@@ -91,7 +91,6 @@ lvim.plugins = {
       end, 100)
     end,
   },
-
   { "zbirenbaum/copilot-cmp",
     after = { "copilot.lua", "nvim-cmp" },
   },
@@ -100,20 +99,22 @@ lvim.plugins = {
 lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
 table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
 
--- enable TS only on Ts files
+-- TS parameters
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "tsserver" })
 local tsserver_opts = {
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
+  -- https://github.com/typescript-language-server/typescript-language-server#initializationoptions
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
 }
 require("lvim.lsp.manager").setup("tsserver", tsserver_opts)
-
--- disable the TS warnings
--- require 'lspconfig'.tsserver.setup {
---   handlers = {
---     ['textDocument/publishDiagnostics'] = function() end,
---   },
--- }
 
 -- TEMPORARY, see: https://github.com/LunarVim/LunarVim/issues/2993#issuecomment-1239178800
 lvim.builtin.bufferline.options.indicator_icon = nil
 lvim.builtin.bufferline.options.indicator = { style = "icon", icon = "▎" }
+
+-- VIM opts
+vim.opt.showmode = true
