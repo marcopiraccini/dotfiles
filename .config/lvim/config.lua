@@ -112,6 +112,11 @@ local tsserver_opts = {
 }
 require("lvim.lsp.manager").setup("tsserver", tsserver_opts)
 
+local marksman_opts = {
+  filetypes = { "markdown" },
+}
+require("lvim.lsp.manager").setup("marksman", marksman_opts)
+
 -- TEMPORARY, see: https://github.com/LunarVim/LunarVim/issues/2993#issuecomment-1239178800
 lvim.builtin.bufferline.options.indicator_icon = nil
 lvim.builtin.bufferline.options.indicator = { style = "icon", icon = "▎" }
