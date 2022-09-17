@@ -110,7 +110,7 @@ To see all marks  (defaults included): `'` or  `:marks`
  - . , etc
 
 Move lines:
-- alt + j/k
+- super + alt + j/k
 
 Macro:
 - Start recording macro with `qa` (for the `a` macro)

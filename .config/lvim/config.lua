@@ -32,6 +32,7 @@ lvim.builtin.alpha.dashboard.section.header.val = {
 }
 
 -- if you don't want all the parsers change this to a table of the ones you want
+lvim.lsp.installer.setup.automatic_installation = false -- HAS TO BE SET TO FALSE OR ISSUE PERSITS
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
@@ -64,6 +65,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "java",
   "yaml",
   "norg",
+  "markdown"
 }
 
 lvim.builtin.treesitter.highlight.enabled = true
@@ -111,11 +113,10 @@ local tsserver_opts = {
   },
 }
 require("lvim.lsp.manager").setup("tsserver", tsserver_opts)
+require("lvim.lsp.manager").setup "marksman"
+-- require("lvim.lsp.manager").setup "grammarly"
 
-local marksman_opts = {
-  filetypes = { "markdown" },
-}
-require("lvim.lsp.manager").setup("marksman", marksman_opts)
+require("lvim.lsp.manager").setup "tailwindcss"
 
 -- TEMPORARY, see: https://github.com/LunarVim/LunarVim/issues/2993#issuecomment-1239178800
 lvim.builtin.bufferline.options.indicator_icon = nil
