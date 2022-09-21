@@ -29,6 +29,9 @@ e.g.:
 %s/foo/bar/g  -> replace in all file
 %s/foo/bar/gc  -> replace with confirm
 
+Removing all lines containing `console`
+:g/profile/d
+
 Insert:
 - i : insert before the cursor
 - I : insert beginning of the line
