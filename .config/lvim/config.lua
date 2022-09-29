@@ -12,10 +12,12 @@ lvim.keys.normal_mode["<C-n>"] = ":NvimTreeToggle<cr>"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.terminal.direction = "float"
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.notify.active = true
+
 
 lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFindFileToggle<CR>", "Explorer" }
 lvim.builtin.alpha.dashboard.section.header.val = {
@@ -127,3 +129,15 @@ vim.opt.showmode = true
 
 -- https://github.com/orgs/community/discussions/16800
 vim.g.copilot_node_command = "~/.nvm/versions/node/v16.16.0/bin/node"
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_filetypes = {
+  ["*"] = true,
+  ["javascript"] = true,
+  ["typescript"] = true,
+  ["rust"] = true,
+  ["c"] = true,
+  ["c#"] = true,
+  ["c++"] = true,
+  ["go"] = true,
+  ["python"] = true,
+}
