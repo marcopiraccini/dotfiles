@@ -141,3 +141,5 @@ vim.g.copilot_filetypes = {
   ["go"] = true,
   ["python"] = true,
 }
+
+vim.api.nvim_set_keymap('i', '<C-Right>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
