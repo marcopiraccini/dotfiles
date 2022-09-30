@@ -126,6 +126,7 @@ lvim.builtin.bufferline.options.indicator = { style = "icon", icon = "▎" }
 
 -- VIM opts
 vim.opt.showmode = true
+vim.opt.wrap = true
 
 -- https://github.com/orgs/community/discussions/16800
 vim.g.copilot_node_command = "~/.nvm/versions/node/v16.16.0/bin/node"
