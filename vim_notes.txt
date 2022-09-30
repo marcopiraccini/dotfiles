@@ -124,3 +124,5 @@ Macro:
 Comments:
 - Using commentary plugin, `gcc` toggles, `gc` in visual mode
 
+Remove Highlight:
+- :noh
