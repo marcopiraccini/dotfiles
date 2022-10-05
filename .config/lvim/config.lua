@@ -144,5 +144,5 @@ vim.g.copilot_filetypes = {
 }
 
 vim.api.nvim_set_keymap('i', '<C-Right>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
-vim.keymap.set('', 'S+<Esc>', "<ESC>:noh<CR>:require('notify').dismiss()<CR>", { silent = true })
-vim.keymap.set('n', '<Esc>', require('notify').dismiss, { noremap = true, desc = 'Dismiss notification' })
+vim.api.nvim_set_keymap('', '<S-Esc>', "<ESC>:noh<CR>", { silent = true })
+vim.keymap.set('', '<Esc>', require('notify').dismiss, { noremap = true, desc = 'Dismiss notification' })
