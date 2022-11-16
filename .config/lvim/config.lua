@@ -16,7 +16,7 @@ lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "float"
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
-lvim.builtin.notify.active = true
+-- lvim.builtin.notify.active = true
 
 
 lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFindFileToggle<CR>", "Explorer" }
@@ -145,4 +145,4 @@ vim.g.copilot_filetypes = {
 
 vim.api.nvim_set_keymap('i', '<C-Right>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
 vim.api.nvim_set_keymap('', '<S-Esc>', "<ESC>:noh<CR>", { silent = true })
-vim.keymap.set('', '<Esc>', require('notify').dismiss, { noremap = true, desc = 'Dismiss notification' })
+-- vim.keymap.set('', '<Esc>', require('notify').dismiss, { noremap = true, desc = 'Dismiss notification' })
