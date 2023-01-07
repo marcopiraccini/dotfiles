@@ -98,13 +98,13 @@ more supported objects:
   - '         A Pair of ' '
   - `         A pair of ` `
 
- Mark positions:
+Mark positions:
  In normal mode: ma (or b, c, etc)
  jump: 'a
  If you use uppercase, marks are global. 
-To see all marks  (defaults included): `'` or  `:marks`
+ To see all marks  (defaults included): `'` or  `:marks`
 
- Dot command:
+Dot command:
  Repeat the last change.
  Es: if you want to replace all let wit const:
  - /let
