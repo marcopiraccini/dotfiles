@@ -16,7 +16,6 @@ lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "float"
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
--- lvim.builtin.notify.active = true
 
 
 lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFindFileToggle<CR>", "Explorer" }
@@ -98,6 +97,17 @@ lvim.plugins = {
   { "zbirenbaum/copilot-cmp",
     after = { "copilot.lua", "nvim-cmp" },
   },
+  {
+    "pwntester/octo.nvim",
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function()
+      require("octo").setup()
+    end,
+  },
 }
 -- Can not be placed into the config method of the plugins.
 lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
@@ -145,4 +155,3 @@ vim.g.copilot_filetypes = {
 
 vim.api.nvim_set_keymap('i', '<C-Right>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
 vim.api.nvim_set_keymap('', '<S-Esc>', "<ESC>:noh<CR>", { silent = true })
--- vim.keymap.set('', '<Esc>', require('notify').dismiss, { noremap = true, desc = 'Dismiss notification' })
