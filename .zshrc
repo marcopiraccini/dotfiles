@@ -138,3 +138,6 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export PNPM_HOME="/home/marco/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end%     
+
+# GO 1.20
+export PATH=/usr/local/go/bin:$PATH
