@@ -140,4 +140,7 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end%     
 
 # GO 1.20
-export PATH=/usr/local/go/bin:$PATH
+export GOROOT=/usr/local/go 
+export GOPATH=/work/workspaces/workspace-go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH 
+
