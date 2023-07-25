@@ -10,7 +10,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- CTRL-N to toggle the tree
 lvim.keys.normal_mode["<C-n>"] = ":NvimTreeToggle<cr>"
 
-lvim.builtin.alpha.active = true
+lvim.builtin.alpha.active = false
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "float"
