@@ -6,3 +6,19 @@ alias vimdiff="nvim -d"
 # Git
 alias gpom="git pull origin master"
 
+# get default branch
+alias gdefault='git remote show origin|grep -E HEAD|cut -d" " -f5'
+
+# cd to git root
+alias groot='cd "$(git rev-parse --show-toplevel)"'
+
+# Revert last unpushed commit to the state before commiting
+alias uncommit="git reset HEAD~1 --soft"
+
+# Show all commits between head and main as one-liner
+alias gl1="git log --reverse --oneline HEAD...\`gdefault\`"
+
+alias log="git log --graph --pretty=oneline --abbrev-commit"
+
+
+
