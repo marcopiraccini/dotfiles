@@ -80,7 +80,6 @@ formatters.setup {
   { name = "standardjs" }
 }
 
--- COPILOT
 lvim.plugins = {
   { "arcticicestudio/nord-vim" },
   { "github/copilot.vim" },
@@ -97,6 +96,20 @@ lvim.plugins = {
       require("octo").setup()
     end,
   },
+  {
+    "ChristianChiarulli/bookmark.nvim",
+    dependencies = {
+      "kkharji/sqlite.lua"   
+    },
+    config = function()
+      require("bookmark").setup {
+        -- Options Here
+        sign = "",
+        highlight = "Function",
+      }
+      require("telescope").load_extension('bookmark')
+    end,
+  }
 }
 -- Can not be placed into the config method of the plugins.
 lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
@@ -144,3 +157,19 @@ vim.g.copilot_filetypes = {
 
 vim.api.nvim_set_keymap('i', '<C-Right>', 'copilot#Accept("<CR>")', { expr = true, silent = true })
 vim.api.nvim_set_keymap('', '<S-Esc>', "<ESC>:noh<CR>", { silent = true })
+
+-- Bookmark
+local opts = { noremap = true, silent = true }
+local keymap = vim.keymap.set
+keymap("n", "<Space><Down>", "<cmd>BookmarkNext<cr>", opts)
+keymap("n", "<Space><Up>", "<cmd>BookmarkPrev<cr>", opts)
+keymap("n", "<Space>B", "<cmd>BookmarkToggle<cr>", opts)
+keymap("n", "<Space><Right>", "<cmd>FilemarkNext<cr>", opts)
+keymap("n", "<Space><Left>", "<cmd>FilemarkPrev<cr>", opts)
+keymap("n", "<Space>F", "<cmd>FilemarkToggle<cr>", opts)
+keymap(
+  "n",
+  "<tab>",
+  "<cmd>lua require('telescope').extensions.bookmark.filemarks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Filemarks'})<cr>",
+  opts
+)
