@@ -69,7 +69,7 @@ SPACESHIP_PROMPT_ORDER=(
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #
-plugins=(git gh nvm svn node npm ant docker github z github jump rust yarn zsh-vi-mode virtualenv kubectl helm zsh-autosuggestions web-search)
+plugins=(git gh nvm svn node npm docker github z github jump rust zsh-vi-mode virtualenv kubectl helm zsh-autosuggestions web-search)
 
 source $ZSH/oh-my-zsh.sh
 
