@@ -2,6 +2,9 @@
 
 alias vim="lvim"
 alias vimdiff="nvim -d"
+alias j="jump"
+alias g="git"
+alias n="nb -i"
 
 # Git
 alias gpom="git pull origin master"
