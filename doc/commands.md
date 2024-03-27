@@ -10,7 +10,7 @@ prev/next buffer: `H/L`
 
 # Bookmarks
 space down/up: navigate bookmarks in file
-space b: toggle bookmark
+space B: toggle bookmark
 space right/left: navigate bookmarks in files
 space F: bookmark files
 

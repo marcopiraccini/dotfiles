@@ -6,3 +6,11 @@ It's also pretty basic since it assumes that everything (oh_my_zsh, nvim, etc), 
 
 
 
+## Installation of oh-my-zsh plugins
+
+```bash
+
+git clone https://github.com/z-shell/nb.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/nb
+```
+
