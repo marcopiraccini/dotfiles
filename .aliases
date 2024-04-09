@@ -1,6 +1,8 @@
 #!/bin/bash
 
 alias vim="lvim"
+alias avim="nvim"
+alias v="nvim"
 alias vimdiff="nvim -d"
 alias j="jump"
 alias g="git"
