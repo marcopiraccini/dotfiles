@@ -82,7 +82,6 @@ return {
 
     null_ls.setup {
       debug = true,
-      timout = 5000,
     }
 
     -- Check supported formatters and linters
