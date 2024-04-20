@@ -112,7 +112,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if type nvim > /dev/null 2>&1; then
-  alias vim='lvim'
+  alias vim='nvim'
 fi
 
 autoload -Uz compinit
