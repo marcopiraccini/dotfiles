@@ -11,5 +11,7 @@ return {
   { import = "astrocommunity.pack.bash" },
   -- { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.colorscheme.nord-nvim" },
+  -- { import = "astrocommunity.colorscheme.nord-nvim" },
+  { import = "astrocommunity.colorscheme.dracula-nvim" },
+  { import = "astrocommunity.media.image-nvim" },
 }
