@@ -80,10 +80,6 @@ return {
     null_ls.register(standardjsDiagn)
     null_ls.register(standardjsForm)
 
-    null_ls.setup {
-      debug = true,
-    }
-
     -- Check supported formatters and linters
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
