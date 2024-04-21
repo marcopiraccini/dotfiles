@@ -5,7 +5,6 @@ Partially inspired by: https://github.com/lucasfcosta/dotfiles
 It's also pretty basic since it assumes that everything (oh_my_zsh, nvim, etc), is already installed since will be installed in different way depending on the OS
 
 
-
 ## Installation of oh-my-zsh plugins
 
 ```bash
@@ -13,4 +12,15 @@ It's also pretty basic since it assumes that everything (oh_my_zsh, nvim, etc), 
 git clone https://github.com/z-shell/nb.git \
   ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/nb
 ```
+
+## Install ssh keys
+This must be done manually copying yhe .ssh folder to the home directory
+
+## Install Astronvim    
+https://docs.astronvim.com/#-installation
+
+
+## Install nb 
+https://xwmx.github.io/nb/#installation
+
 
