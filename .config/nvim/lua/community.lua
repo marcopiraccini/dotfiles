@@ -12,5 +12,7 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.colorscheme.nordic-nvim" },
+  { import = "astrocommunity.colorscheme.nord-nvim" },
   { import = "astrocommunity.media.image-nvim" },
+  { import = "astrocommunity.editing-support.chatgpt-nvim" },
 }
