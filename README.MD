@@ -23,4 +23,9 @@ https://docs.astronvim.com/#-installation
 ## Install nb 
 https://xwmx.github.io/nb/#installation
 
+## Install Rust
 
+Rust analyzer: 
+```bash
+rustup component add rust-analyzer
+```
