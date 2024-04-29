@@ -16,4 +16,5 @@ return {
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.media.image-nvim" },
   { import = "astrocommunity.editing-support.chatgpt-nvim" },
+  { import = "astrocommunity.motion.mini-move" },
 }
