@@ -29,3 +29,10 @@ Rust analyzer:
 ```bash
 rustup component add rust-analyzer
 ```
+
+## Install utilities
+
+For the fin in astornvim to work, you need to install ripgrep
+```bash
+sudo apt isntall ripgrep
+``` 
