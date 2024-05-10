@@ -34,5 +34,11 @@ rustup component add rust-analyzer
 
 For the fin in astornvim to work, you need to install ripgrep
 ```bash
-sudo apt isntall ripgrep
+sudo apt install ripgrep
+sudo apt install gdu
 ``` 
+
+Install bottom:
+```bash
+https://github.com/ClementTsang/bottom?tab=readme-ov-file#debian--ubuntu
+```
