@@ -6,10 +6,14 @@ return {
       statusline = false,
       sources = {
         { source = "filesystem" },
+        { source = "buffers" },
         { source = "git_status" },
       },
     }
     opts.filesystem = {
+      follow_current_file = {
+        enabled = true,
+      },
       filtered_items = {
         visible = true,
         hide_dotfiles = false,
@@ -22,6 +26,5 @@ return {
         },
       },
     }
-    return opts
   end,
 }
