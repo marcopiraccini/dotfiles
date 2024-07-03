@@ -1,4 +1,3 @@
-
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
 
@@ -11,7 +10,7 @@ return {
   {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
-   config = function() require("lsp_signature").setup() end,
+    config = function() require("lsp_signature").setup() end,
   },
 
   -- == Examples of Overriding Plugins ==
@@ -22,12 +21,12 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-  [[  ____             _                ]],
-  [[ |  _ \  __ _ _ __| | ____ ___   __ ]],
-  [[ | | | |/ _` | '__| |/ / _` \ \ / / ]],
-  [[ | |_| | (_| | |  |   < (_| |\ V /  ]],
-  [[ |____/ \__,_|_|  |_|\_\__,_| \_/   ]],
-  [[                                    ]],
+        [[  ____             _                ]],
+        [[ |  _ \  __ _ _ __| | ____ ___   __ ]],
+        [[ | | | |/ _` | '__| |/ / _` \ \ / / ]],
+        [[ | |_| | (_| | |  |   < (_| |\ V /  ]],
+        [[ |____/ \__,_|_|  |_|\_\__,_| \_/   ]],
+        [[                                    ]],
       }
       return opts
     end,
@@ -75,5 +74,31 @@ return {
         Rule("a", "a", "-vim")
       )
     end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      default_component_configs = {
+        container = {
+          enable_character_fade = false,
+        },
+      },
+      filesystem = {
+        follow_current_file = {
+          enabled = true,
+        },
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = false,
+          hide_gitignore = false,
+          hide_by_name = {
+            ".DS_Store",
+            "thumbs.db",
+            "node_modules",
+            "__pycache__",
+          },
+        },
+      },
+    },
   },
 }
