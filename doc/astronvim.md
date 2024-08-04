@@ -2,7 +2,7 @@ https://github.com/stevearc/resession.nvim
 
 dirsessions are saved in: /home/marco/.local/share/nvim/dirsession
 
-neovim:
+Resize: CTRL + arrows
 
 - Refresh: R
 - Change source: < >
