@@ -7,8 +7,8 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   -- { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.colorscheme.nordic-nvim" },
@@ -17,4 +17,5 @@ return {
   { import = "astrocommunity.media.image-nvim" },
   { import = "astrocommunity.editing-support.chatgpt-nvim" },
   { import = "astrocommunity.motion.mini-move" },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
 }
