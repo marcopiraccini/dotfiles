@@ -101,4 +101,11 @@ return {
       },
     },
   },
+  {
+    -- https://github.com/vuki656/package-info.nvim
+    "vuki656/package-info.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = { autostart = false }, -- avoid annoying notification
+    event = "BufRead package.json",
+  },
 }
