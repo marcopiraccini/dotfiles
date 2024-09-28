@@ -18,4 +18,6 @@ return {
   { import = "astrocommunity.editing-support.chatgpt-nvim" },
   { import = "astrocommunity.motion.mini-move" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  { import = "astrocommunity.colorscheme" },
+  { import = "astrocommunity.recipes.cache-colorscheme" },
 }
