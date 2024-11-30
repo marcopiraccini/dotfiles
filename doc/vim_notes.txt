@@ -99,10 +99,10 @@ more supported objects:
   - `         A pair of ` `
 
 Mark positions:
- In normal mode: ma (or b, c, etc)
- jump: 'a
- If you use uppercase, marks are global. 
- To see all marks  (defaults included): `'` or  `:marks`
+  In normal mode: ma (or b, c, etc)
+  jump: 'a
+  If you use uppercase, marks are global. 
+  To see all marks  (defaults included): `'` or  `:marks`
 
 Dot command:
  Repeat the last change.
@@ -113,7 +113,7 @@ Dot command:
  - . , etc
 
 Move lines:
-- super + alt + j/k
+- super + j/k
 
 Macro:
 - Start recording macro with `qa` (for the `a` macro)
