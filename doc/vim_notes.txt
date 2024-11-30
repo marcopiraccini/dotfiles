@@ -98,7 +98,7 @@ more supported objects:
   - '         A Pair of ' '
   - `         A pair of ` `
 
-Mark positions:
+Mark positions (bookmarks):
   In normal mode: ma (or b, c, etc)
   jump: 'a
   If you use uppercase, marks are global. 
