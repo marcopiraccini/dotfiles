@@ -9,6 +9,7 @@ alias g="git"
 
 # Git
 alias gpom="git pull origin master"
+alias gti="git"
 
 # get default branch
 alias gdefault='git remote show origin|grep -E HEAD|cut -d" " -f5'
