@@ -25,6 +25,3 @@ alias gl1="git log --reverse --oneline HEAD...\`gdefault\`"
 
 alias log="git log --graph --pretty=oneline --abbrev-commit"
 
-alias t="task"
-
-alias tui="taskwarrior-tui"
