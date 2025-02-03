@@ -11,10 +11,6 @@ This must be done manually copying yhe .ssh folder to the home directory
 
 https://docs.astronvim.com/#-installation
 
-## Install taskwarrior
-
-https://taskwarrior.org/download/
-
 ## Install Rust
 
 Rust analyzer:
