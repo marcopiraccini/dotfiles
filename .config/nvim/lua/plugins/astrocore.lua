@@ -31,7 +31,8 @@ return {
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-        wrap = false, -- sets vim.opt.wrap
+        wrap = true, -- sets vim.opt.wrap,
+        showbreak = "+++\\ ", -- sets vim.opt.showbreak
         swapfile = false, -- sets vim.opt.swapfile
       },
       g = { -- vim.g.<key>

@@ -119,7 +119,10 @@ autoload -Uz compinit
 compinit
 
 # Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
+if command -v kitty 2>&1 >/dev/null
+then
+  kitty + complete setup zsh | source /dev/stdin
+fi
 fpath=($fpath "~/.zfunctions")
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 
@@ -131,9 +134,6 @@ source ~/.profile
 export FZF_DEFAULT_COMMAND="find -L"
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
-export FLYCTL_INSTALL="$HOME/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
 # pnpm
 export PNPM_HOME="/home/marco/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
@@ -144,3 +144,6 @@ export GOROOT=/usr/local/go
 export GOPATH=/work/workspaces/workspace-go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH 
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
