@@ -14,22 +14,23 @@ return {
   },
 
   -- == Examples of Overriding Plugins ==
-
-  -- customize alpha options
+  -- customize dashboard options
   {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        [[  ____             _                ]],
-        [[ |  _ \  __ _ _ __| | ____ ___   __ ]],
-        [[ | | | |/ _` | '__| |/ / _` \ \ / / ]],
-        [[ | |_| | (_| | |  |   < (_| |\ V /  ]],
-        [[ |____/ \__,_|_|  |_|\_\__,_| \_/   ]],
-        [[                                    ]],
-      }
-      return opts
-    end,
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = table.concat({
+            [[  ____             _                ]],
+            [[ |  _ \  __ _ _ __| | ____ ___   __ ]],
+            [[ | | | |/ _` | '__| |/ / _` \ \ / / ]],
+            [[ | |_| | (_| | |  |   < (_| |\ V /  ]],
+            [[ |____/ \__,_|_|  |_|\_\__,_| \_/   ]],
+            [[                                    ]],
+          }, "\n"),
+        },
+      },
+    },
   },
 
   -- You can disable default plugins as follows:
