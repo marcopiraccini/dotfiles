@@ -25,6 +25,7 @@ alias gl1="git log --reverse --oneline HEAD...\`gdefault\`"
 
 alias log="git log --graph --pretty=oneline --abbrev-commit"
 alias gs="git status"
+alias gss="git status -s"
 
 # shell management
 alias c="clear"
