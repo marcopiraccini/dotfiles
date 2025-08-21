@@ -1,7 +1,7 @@
 #!/bin/bash
 
-alias vim="nvim"
-alias avim="nvim"
+alias vim="vim"
+alias avim="vim"
 alias v="nvim"
 alias vimdiff="nvim -d"
 alias j="jump"
@@ -24,4 +24,8 @@ alias uncommit="git reset HEAD~1 --soft"
 alias gl1="git log --reverse --oneline HEAD...\`gdefault\`"
 
 alias log="git log --graph --pretty=oneline --abbrev-commit"
+alias gs="git status"
 
+# shell management
+alias c="clear"
+alias q="exit"
