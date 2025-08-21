@@ -9,6 +9,7 @@ alias g="git"
 
 # Git
 alias gpom="git pull origin master"
+alias gp="git push"
 alias gti="git"
 
 # get default branch
