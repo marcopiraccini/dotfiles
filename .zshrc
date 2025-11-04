@@ -144,6 +144,9 @@ export GOROOT=/usr/local/go
 export GOPATH=/work/workspaces/workspace-go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH 
 
+# nvim
+export PATH=/opt/nvim-linux-x86_64/bin:$PATH
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

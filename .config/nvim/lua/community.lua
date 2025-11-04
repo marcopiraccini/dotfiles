@@ -8,7 +8,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   -- { import = "astrocommunity.pack.python" },
   -- { import = "astrocommunity.pack.bash" },
-  { import = "astrocommunity.pack.rust" },
+  -- { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.colorscheme.nordic-nvim" },

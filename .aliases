@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alias vim="vim"
+alias vim="nvim"
 alias avim="vim"
 alias v="nvim"
 alias vimdiff="nvim -d"
