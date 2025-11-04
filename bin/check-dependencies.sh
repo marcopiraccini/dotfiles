@@ -91,6 +91,7 @@ check_path "$HOME/.config/nvim" "Neovim config" "true"
 echo ""
 echo -e "${BLUE}Checking terminal...${NC}"
 check_command "kitty" "Kitty terminal" "true"
+check_command "ghostty" "Ghostty terminal" "true"
 
 echo ""
 echo -e "${BLUE}Checking search and file tools...${NC}"
