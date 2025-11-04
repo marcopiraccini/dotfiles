@@ -1,35 +1,173 @@
-# Collection of zsh / vim configurations.
+# Dotfiles
 
-**This is configured for Linux** (so no fancy OSx stuff :) but the goal is to have a common configuration that I can use in both Ubuntu and OSx.
-It's also pretty basic since it assumes that everything (oh_my_zsh, nvim, etc), is already installed since will be installed in different way depending on the OS
+Personal collection of shell and editor configurations for a consistent development environment across machines.
 
-## Install ssh keys
+**Configured for Linux** (Ubuntu/Debian) with the goal of maintaining common configurations that work across different systems.
 
-This must be done manually copying yhe .ssh folder to the home directory
+## Features
 
-## Install Astronvim
+- **Shell**: Zsh with oh-my-zsh and Spaceship prompt
+- **Editor**: Neovim with AstroNvim configuration
+- **Terminal**: Kitty terminal configuration
+- **Claude Code**: Pre-configured `.claude` settings with custom commands
+- **Git**: Comprehensive aliases and shortcuts
+- **Development**: Node.js (nvm), pnpm, Go, Rust, and more
 
-https://docs.astronvim.com/#-installation
+## Prerequisites
 
-## Install Rust
+Before running the setup, ensure you have these installed:
 
-Rust analyzer:
+- **Git**: For cloning the repository
+- **Zsh**: The Z shell
+- **oh-my-zsh**: Zsh framework - [Installation guide](https://ohmyz.sh/#install)
+- **rsync**: For syncing dotfiles (usually pre-installed on Linux)
 
+## Setup
+
+1. Clone this repository:
 ```bash
+git clone https://github.com/marcopiraccini/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+```
+
+2. (Optional) Check your system for required dependencies:
+```bash
+./bin/check-dependencies.sh
+```
+
+This script will verify that all required tools are installed and report any missing components.
+
+3. Run the setup script:
+```bash
+./setup.sh
+```
+
+Or force installation without prompt:
+```bash
+./setup.sh --force
+```
+
+This will sync all dotfiles to your home directory, including:
+- Shell configuration (`.zshrc`, `.aliases`)
+- Editor configs (`.config/nvim`, `.config/kitty`, etc.)
+- Claude Code settings (`.claude/`)
+- Utility scripts (`bin/`)
+
+## Post-Installation
+
+### Install SSH Keys
+
+Manually copy your `.ssh` folder to the home directory:
+```bash
+cp -r /path/to/backup/.ssh ~/
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+```
+
+### Install Neovim
+
+Download and install the latest Neovim:
+```bash
+# Update the path in .zshrc if using a different location
+export PATH=/opt/nvim-linux-x86_64/bin:$PATH
+```
+
+Visit [Neovim releases](https://github.com/neovim/neovim/releases) for installation instructions.
+
+### Install AstroNvim
+
+Follow the [AstroNvim installation guide](https://docs.astronvim.com/#-installation):
+```bash
+git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+nvim
+```
+
+### Install Rust Tools
+
+Install Rust and rust-analyzer:
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup component add rust-analyzer
 ```
 
-## Install utilities
+### Install Essential Utilities
 
-For the fin in astornvim to work, you need to install ripgrep
+For AstroNvim search and system monitoring to work properly:
 
 ```bash
-sudo apt install ripgrep
+# Search tools
+sudo apt install ripgrep fd-find
+
+# System monitoring
 sudo apt install gdu
+
+# Install bottom (modern system monitor)
+# Visit: https://github.com/ClementTsang/bottom?tab=readme-ov-file#debian--ubuntu
 ```
 
-Install bottom:
+### Install Node.js Tools
 
 ```bash
-https://github.com/ClementTsang/bottom?tab=readme-ov-file#debian--ubuntu
+# nvm is loaded automatically from .zshrc
+# Install your preferred Node.js version:
+nvm install --lts
+
+# pnpm is configured in PATH
+npm install -g pnpm
 ```
+
+## Claude Code Configuration
+
+This dotfiles repo includes `.claude/` configuration:
+
+- **CLAUDE.md**: Global instructions for Claude Code across all projects
+- **settings.json**: Permissions and preferences
+- **commands/**: Custom slash commands
+  - `/catchup` - Review all changed files in current git branch
+  - `/pr` - Prepare and create pull requests
+
+## Utility Scripts
+
+The `bin/` directory contains helpful scripts:
+
+- **check-dependencies.sh**: Verifies all required and optional dependencies are installed
+- **install-fonts.sh**: Installs custom fonts for terminal and editor
+- **reset-nvim.sh**: Resets Neovim configuration to defaults
+- **settuning.sh**: System tuning configurations
+
+These scripts are automatically added to your PATH when the dotfiles are installed.
+
+## Customization
+
+### Machine-Specific Settings
+
+For machine-specific configurations that shouldn't be synced:
+
+1. Create a `.zshrc.local` file in your home directory
+2. Add machine-specific environment variables and settings
+3. It will be automatically sourced by `.zshrc`
+
+### Modifying Paths
+
+Update these paths in `.zshrc` based on your setup:
+- `GOPATH` (line 144)
+- `PNPM_HOME` (line 138)
+- Neovim path (line 148)
+
+## Useful Aliases
+
+### Git
+- `gs` - git status
+- `gpom` - git pull origin master
+- `groot` - cd to git root directory
+- `uncommit` - undo last commit (keep changes)
+- `gl1` - show commits between HEAD and default branch
+
+### Navigation
+- `v` or `vim` - open neovim
+- `c` - clear terminal
+- `q` - exit shell
+
+## License
+
+MIT License - See [LICENSE](LICENSE) file for details.

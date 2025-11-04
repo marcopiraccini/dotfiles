@@ -132,7 +132,7 @@ source ~/.profile
 
 # https://www.reddit.com/r/neovim/comments/48ymsn/fzf_how_to_show_hidden_files/
 export FZF_DEFAULT_COMMAND="find -L"
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+command -v kubectl &> /dev/null && source <(kubectl completion zsh)
 
 # pnpm
 export PNPM_HOME="/home/marco/.local/share/pnpm"
