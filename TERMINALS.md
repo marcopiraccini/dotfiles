@@ -129,6 +129,8 @@ Both terminals use `ctrl+shift` as the modifier key (equivalent to `kitty_mod`).
 | Close tab | `ctrl+shift+q` | Close current tab |
 | Next tab | `ctrl+shift+right` or `ctrl+shift+l` | Switch to next tab |
 | Previous tab | `ctrl+shift+left` or `ctrl+shift+h` | Switch to previous tab |
+| Move tab forward | `ctrl+shift+.` | Move current tab to the right |
+| Move tab backward | `ctrl+shift+,` | Move current tab to the left |
 | Set tab title | `ctrl+shift+i` | Set custom tab/window title |
 
 ### Scrolling
@@ -177,6 +179,7 @@ Both terminals use `ctrl+shift` as the modifier key (equivalent to `kitty_mod`).
 | **Shell Integration** | Automatic | Explicit (zsh, bash, fish) |
 | **Remote Control** | Full API support | Limited |
 | **Tab/Window Titles** | `set_tab_title` | `prompt_surface_title` |
+| **Tab Reordering** | `move_tab_forward/backward` | `move_tab:<offset>` |
 | **Layout Rotation** | `ctrl+shift+tab` | Not available |
 | **Performance** | Excellent | Excellent (Zig-based) |
 | **GPU Acceleration** | Yes | Yes |
