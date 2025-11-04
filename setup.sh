@@ -9,7 +9,9 @@ function doIt() {
 		--exclude ".DS_Store" \
 		--exclude ".osx" \
 		--exclude "setup.sh" \
+		--exclude "README.md" \
 		--exclude "README.MD" \
+		--exclude "TERMINALS.md" \
 		--exclude "LICENSE" \
 		--exclude "doc" \
 		-avh --no-perms . ~

@@ -4,11 +4,15 @@ Personal collection of shell and editor configurations for a consistent developm
 
 **Configured for Linux** (Ubuntu/Debian) with the goal of maintaining common configurations that work across different systems.
 
+## Documentation
+
+- **[TERMINALS.md](TERMINALS.md)** - Complete guide to Kitty and Ghostty terminal configurations, keybindings, and troubleshooting
+
 ## Features
 
 - **Shell**: Zsh with oh-my-zsh and Spaceship prompt
 - **Editor**: Neovim with AstroNvim configuration
-- **Terminal**: Kitty terminal configuration
+- **Terminal**: Kitty and Ghostty terminal configurations (see [TERMINALS.md](TERMINALS.md))
 - **Claude Code**: Pre-configured `.claude` settings with custom commands
 - **Git**: Comprehensive aliases and shortcuts
 - **Development**: Node.js (nvm), pnpm, Go, Rust, and more
@@ -49,7 +53,8 @@ Or force installation without prompt:
 
 This will sync all dotfiles to your home directory, including:
 - Shell configuration (`.zshrc`, `.aliases`)
-- Editor configs (`.config/nvim`, `.config/kitty`, etc.)
+- Editor configs (`.config/nvim`)
+- Terminal configs (`.config/kitty`, `.config/ghostty`)
 - Claude Code settings (`.claude/`)
 - Utility scripts (`bin/`)
 
@@ -81,6 +86,29 @@ Follow the [AstroNvim installation guide](https://docs.astronvim.com/#-installat
 git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
 nvim
 ```
+
+### Install Terminal Emulators
+
+#### Kitty
+```bash
+# Ubuntu/Debian
+sudo apt install kitty
+
+# Or download the latest release from:
+# https://sw.kovidgoyal.net/kitty/binary/
+```
+
+#### Ghostty
+```bash
+# Download from official releases:
+# https://github.com/ghostty-org/ghostty
+
+# Or install via package manager when available
+```
+
+Both terminals are configured with Dracula theme, FiraCode Nerd Font, and equivalent keybindings.
+
+**📖 For detailed keybindings, troubleshooting, and feature comparison, see [TERMINALS.md](TERMINALS.md)**
 
 ### Install Rust Tools
 

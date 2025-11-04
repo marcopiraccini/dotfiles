@@ -1,0 +1,111 @@
+# Ghostty Configuration
+# Equivalent to Kitty setup
+
+# Theme - Dracula colors (inline)
+background = 282a36
+foreground = f8f8f2
+cursor-color = f8f8f2
+selection-background = 44475a
+selection-foreground = f8f8f2
+
+# Dracula color palette
+palette = 0=#21222c
+palette = 1=#ff5555
+palette = 2=#50fa7b
+palette = 3=#f1fa8c
+palette = 4=#bd93f9
+palette = 5=#ff79c6
+palette = 6=#8be9fd
+palette = 7=#f8f8f2
+palette = 8=#6272a4
+palette = 9=#ff6e6e
+palette = 10=#69ff94
+palette = 11=#ffffa5
+palette = 12=#d6acff
+palette = 13=#ff92df
+palette = 14=#a4ffff
+palette = 15=#ffffff
+
+# Font configuration
+font-family = "FiraCode Nerd Font Mono"
+font-size = 14
+
+# Window settings
+window-decoration = true
+window-padding-x = 0
+window-padding-y = 0
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+
+# Shell integration for zsh
+shell-integration = zsh
+
+# Performance
+resize-overlay = never
+
+# Tab bar
+window-theme = auto
+
+# Clipboard (super/cmd is handled by ghostty automatically for copy/paste)
+# Ghostty handles system clipboard integration natively
+
+# Custom keybindings
+# Note: Ghostty uses ctrl+shift as default modifier (like kitty_mod)
+
+# Window splitting
+keybind = ctrl+shift+enter=new_split:right
+keybind = ctrl+shift+minus=new_split:down
+keybind = ctrl+shift+backslash=new_split:right
+
+# Window navigation
+keybind = ctrl+shift+right_bracket=goto_split:next
+keybind = ctrl+shift+left_bracket=goto_split:previous
+
+# Window movement (using shift+arrows like Kitty)
+keybind = shift+up=goto_split:top
+keybind = shift+down=goto_split:bottom
+keybind = shift+left=goto_split:left
+keybind = shift+right=goto_split:right
+
+# Window resizing (using ctrl+hjkl like Kitty)
+keybind = ctrl+h=resize_split:left,10
+keybind = ctrl+l=resize_split:right,10
+keybind = ctrl+k=resize_split:up,10
+keybind = ctrl+j=resize_split:down,10
+
+# Tab management
+keybind = ctrl+shift+t=new_tab
+keybind = ctrl+shift+q=close_surface
+keybind = ctrl+shift+right=next_tab
+keybind = ctrl+shift+l=next_tab
+keybind = ctrl+shift+left=previous_tab
+keybind = ctrl+shift+h=previous_tab
+keybind = ctrl+shift+i=prompt_surface_title
+
+# Scrolling
+keybind = ctrl+shift+up=scroll_page_lines:-1
+keybind = ctrl+shift+down=scroll_page_lines:1
+keybind = ctrl+shift+k=scroll_page_lines:-1
+keybind = ctrl+shift+j=scroll_page_lines:1
+keybind = ctrl+shift+page_up=scroll_page_up
+keybind = ctrl+shift+page_down=scroll_page_down
+keybind = ctrl+shift+home=scroll_to_top
+keybind = ctrl+shift+end=scroll_to_bottom
+
+# Font size adjustment
+# Note: Using ctrl+plus/minus to avoid conflict with split keybinding
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+shift+zero=reset_font_size
+
+# Misc settings
+copy-on-select = false
+confirm-close-surface = false
+
+# Background opacity (optional, uncomment if desired)
+# background-opacity = 0.95
+
+# Command palette
+keybind = ctrl+shift+p=toggle_quick_terminal
