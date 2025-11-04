@@ -135,9 +135,9 @@ export FZF_DEFAULT_COMMAND="find -L"
 command -v kubectl &> /dev/null && source <(kubectl completion zsh)
 
 # pnpm
-export PNPM_HOME="/home/marco/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end%     
+# pnpm end     
 
 # GO 1.20
 export GOROOT=/usr/local/go 
