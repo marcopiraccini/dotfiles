@@ -139,6 +139,22 @@ This will install:
 - rust-analyzer for IDE support
 - All necessary build tools
 
+### Install Claude Code
+
+Use the provided installation script:
+```bash
+./bin/install-claude.sh
+```
+
+The script offers two installation methods:
+1. **Official installer** (recommended) - installs to `~/.local/bin`
+2. **NPM installation** - requires Node.js 18+
+
+After installation:
+1. Restart your terminal
+2. Run `claude login` to authenticate
+3. Start using: `claude`
+
 ### Install Essential Utilities
 
 For AstroNvim search and system monitoring to work properly:
@@ -192,6 +208,7 @@ The `bin/` directory contains helpful scripts:
 - **install-ghostty.sh**: Installs Ghostty terminal (auto-detects correct architecture)
 - **install-nvm.sh**: Installs NVM (Node Version Manager) for managing Node.js versions
 - **install-rust.sh**: Installs Rust toolchain via rustup, including rust-analyzer
+- **install-claude.sh**: Installs Claude Code CLI (official installer or npm method)
 
 ### Utilities
 - **check-dependencies.sh**: Verifies all required and optional dependencies are installed
