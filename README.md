@@ -122,13 +122,17 @@ Both terminals are configured with Dracula theme, FiraCode Nerd Font, and equiva
 
 **📖 For detailed keybindings, troubleshooting, and feature comparison, see [TERMINALS.md](TERMINALS.md)**
 
-### Install Rust Tools
+### Install Rust
 
-Install Rust and rust-analyzer:
+Use the provided installation script:
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup component add rust-analyzer
+./bin/install-rust.sh
 ```
+
+This will install:
+- Rust toolchain via rustup
+- rust-analyzer for IDE support
+- All necessary build tools
 
 ### Install Essential Utilities
 
@@ -145,14 +149,19 @@ sudo apt install gdu
 # Visit: https://github.com/ClementTsang/bottom?tab=readme-ov-file#debian--ubuntu
 ```
 
-### Install Node.js Tools
+### Install Node.js (via NVM)
 
+Use the provided installation script:
 ```bash
-# nvm is loaded automatically from .zshrc
-# Install your preferred Node.js version:
+./bin/install-nvm.sh
+```
+
+Then install Node.js and tools:
+```bash
+# Install Node.js LTS
 nvm install --lts
 
-# pnpm is configured in PATH
+# Install pnpm (configured in .zshrc PATH)
 npm install -g pnpm
 ```
 
@@ -170,9 +179,14 @@ This dotfiles repo includes `.claude/` configuration:
 
 The `bin/` directory contains helpful scripts:
 
+### Setup & Installation
 - **install-zsh-tools.sh**: Installs oh-my-zsh, Spaceship theme, and zsh plugins (autosuggestions, vi-mode)
+- **install-fonts.sh**: Installs FiraCode Nerd Font (automatically fetches latest version)
+- **install-nvm.sh**: Installs NVM (Node Version Manager) for managing Node.js versions
+- **install-rust.sh**: Installs Rust toolchain via rustup, including rust-analyzer
+
+### Utilities
 - **check-dependencies.sh**: Verifies all required and optional dependencies are installed
-- **install-fonts.sh**: Installs custom fonts for terminal and editor
 - **reset-nvim.sh**: Resets Neovim configuration to defaults
 - **settuning.sh**: System tuning configurations
 
