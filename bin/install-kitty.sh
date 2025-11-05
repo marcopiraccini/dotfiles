@@ -70,6 +70,10 @@ case $REPLY in
         # Create symbolic links
         echo -e "${BLUE}Creating desktop integration...${NC}"
 
+        # Ensure directories exist
+        mkdir -p ~/.local/bin
+        mkdir -p ~/.local/share/applications
+
         # Create symlinks if they don't exist
         if [ ! -e "$HOME/.local/bin/kitty" ]; then
             ln -sf ~/.local/kitty.app/bin/kitty ~/.local/bin/
