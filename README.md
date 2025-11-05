@@ -103,11 +103,11 @@ nvim
 
 #### Kitty
 ```bash
-# Ubuntu/Debian
-sudo apt install kitty
+# Use the provided installation script (official installer or APT):
+./bin/install-kitty.sh
 
-# Or download the latest release from:
-# https://sw.kovidgoyal.net/kitty/binary/
+# Or install manually via APT:
+# sudo apt install kitty
 ```
 
 #### Ghostty
@@ -183,6 +183,7 @@ The `bin/` directory contains helpful scripts:
 ### Setup & Installation
 - **install-zsh-tools.sh**: Installs oh-my-zsh, Spaceship theme, and zsh plugins (autosuggestions, vi-mode)
 - **install-fonts.sh**: Installs FiraCode Nerd Font (automatically fetches latest version)
+- **install-kitty.sh**: Installs Kitty terminal (official installer or APT)
 - **install-ghostty.sh**: Installs Ghostty terminal (auto-detects correct architecture)
 - **install-nvm.sh**: Installs NVM (Node Version Manager) for managing Node.js versions
 - **install-rust.sh**: Installs Rust toolchain via rustup, including rust-analyzer
