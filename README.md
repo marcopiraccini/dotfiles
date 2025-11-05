@@ -22,9 +22,10 @@ Personal collection of shell and editor configurations for a consistent developm
 Before running the setup, ensure you have these installed:
 
 - **Git**: For cloning the repository
-- **Zsh**: The Z shell
-- **oh-my-zsh**: Zsh framework - [Installation guide](https://ohmyz.sh/#install)
+- **Zsh**: The Z shell (`sudo apt install zsh` on Ubuntu/Debian)
 - **rsync**: For syncing dotfiles (usually pre-installed on Linux)
+
+**Note**: oh-my-zsh and plugins can be installed automatically using the provided script (see Setup step 2)
 
 ## Setup
 
@@ -34,14 +35,25 @@ git clone https://github.com/marcopiraccini/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
-2. (Optional) Check your system for required dependencies:
+2. Install oh-my-zsh, Spaceship theme, and plugins:
+```bash
+./bin/install-zsh-tools.sh
+```
+
+This script will automatically install:
+- oh-my-zsh framework
+- Spaceship prompt theme
+- zsh-autosuggestions plugin
+- zsh-vi-mode plugin
+
+3. (Optional) Check your system for required dependencies:
 ```bash
 ./bin/check-dependencies.sh
 ```
 
 This script will verify that all required tools are installed and report any missing components.
 
-3. Run the setup script:
+4. Run the setup script:
 ```bash
 ./setup.sh
 ```
@@ -158,6 +170,7 @@ This dotfiles repo includes `.claude/` configuration:
 
 The `bin/` directory contains helpful scripts:
 
+- **install-zsh-tools.sh**: Installs oh-my-zsh, Spaceship theme, and zsh plugins (autosuggestions, vi-mode)
 - **check-dependencies.sh**: Verifies all required and optional dependencies are installed
 - **install-fonts.sh**: Installs custom fonts for terminal and editor
 - **reset-nvim.sh**: Resets Neovim configuration to defaults
