@@ -83,13 +83,17 @@ chmod 600 ~/.ssh/*
 
 ### Install Neovim
 
-Download and install the latest Neovim:
+Use the provided installation script:
 ```bash
-# Update the path in .zshrc if using a different location
-export PATH=/opt/nvim-linux-x86_64/bin:$PATH
+./bin/install-neovim.sh
 ```
 
-Visit [Neovim releases](https://github.com/neovim/neovim/releases) for installation instructions.
+This will:
+- Download the latest stable Neovim release
+- Install to `/opt/nvim-{architecture}` (e.g., `/opt/nvim-linux-x86_64` or `/opt/nvim-linux-arm64`)
+- Create `/opt/nvim` symlink pointing to the architecture-specific installation
+- Create binary symlink in `/usr/local/bin/nvim`
+- Verify installation
 
 ### Install AstroNvim
 
@@ -182,6 +186,7 @@ The `bin/` directory contains helpful scripts:
 
 ### Setup & Installation
 - **install-zsh-tools.sh**: Installs oh-my-zsh, Spaceship theme, and zsh plugins (autosuggestions, vi-mode)
+- **install-neovim.sh**: Installs latest Neovim with architecture detection, creates `/opt/nvim` symlink
 - **install-fonts.sh**: Installs FiraCode Nerd Font (automatically fetches latest version)
 - **install-kitty.sh**: Installs Kitty terminal (official installer or APT)
 - **install-ghostty.sh**: Installs Ghostty terminal (auto-detects correct architecture)
