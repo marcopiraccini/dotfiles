@@ -142,6 +142,41 @@ echo -e "${GREEN}✓ Spaceship theme${NC}"
 echo -e "${GREEN}✓ zsh-autosuggestions plugin${NC}"
 echo -e "${GREEN}✓ zsh-vi-mode plugin${NC}"
 echo ""
+
+# Check if zsh is the default shell
+CURRENT_SHELL=$(basename "$SHELL")
+if [ "$CURRENT_SHELL" != "zsh" ]; then
+    echo -e "${YELLOW}Current default shell: $CURRENT_SHELL${NC}"
+    echo ""
+    read -p "Do you want to set Zsh as your default shell? (y/n) " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        ZSH_PATH=$(which zsh)
+
+        # Check if zsh is in /etc/shells
+        if ! grep -q "^$ZSH_PATH$" /etc/shells 2>/dev/null; then
+            echo -e "${YELLOW}Adding zsh to /etc/shells...${NC}"
+            echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null
+        fi
+
+        echo -e "${BLUE}Changing default shell to zsh...${NC}"
+        if chsh -s "$ZSH_PATH"; then
+            echo -e "${GREEN}✓ Default shell changed to zsh${NC}"
+            echo -e "${YELLOW}Note: You need to log out and log back in for this to take effect${NC}"
+        else
+            echo -e "${RED}✗ Failed to change shell${NC}"
+            echo "You can manually change it later with: chsh -s $(which zsh)"
+        fi
+    else
+        echo -e "${BLUE}Keeping current shell: $CURRENT_SHELL${NC}"
+        echo "You can change it later with: chsh -s $(which zsh)"
+    fi
+    echo ""
+else
+    echo -e "${GREEN}✓ Zsh is already your default shell${NC}"
+    echo ""
+fi
+
 echo -e "${YELLOW}Next steps:${NC}"
 echo "1. Make sure your .zshrc includes these plugins in the plugins array:"
 echo "   plugins=(... zsh-autosuggestions zsh-vi-mode ...)"
@@ -150,5 +185,6 @@ echo "2. Make sure your .zshrc sets the theme:"
 echo "   ZSH_THEME=\"spaceship\""
 echo ""
 echo "3. Restart your shell or run: source ~/.zshrc"
+echo "   (Or log out and back in if you changed your default shell)"
 echo ""
 echo -e "${GREEN}Enjoy your enhanced Zsh experience!${NC}"
