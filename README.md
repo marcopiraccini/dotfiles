@@ -112,10 +112,11 @@ sudo apt install kitty
 
 #### Ghostty
 ```bash
-# Download from official releases:
-# https://github.com/ghostty-org/ghostty
+# Use the provided installation script (auto-detects architecture):
+./bin/install-ghostty.sh
 
-# Or install via package manager when available
+# Or download manually from:
+# https://ghostty.org/download
 ```
 
 Both terminals are configured with Dracula theme, FiraCode Nerd Font, and equivalent keybindings.
@@ -182,6 +183,7 @@ The `bin/` directory contains helpful scripts:
 ### Setup & Installation
 - **install-zsh-tools.sh**: Installs oh-my-zsh, Spaceship theme, and zsh plugins (autosuggestions, vi-mode)
 - **install-fonts.sh**: Installs FiraCode Nerd Font (automatically fetches latest version)
+- **install-ghostty.sh**: Installs Ghostty terminal (auto-detects correct architecture)
 - **install-nvm.sh**: Installs NVM (Node Version Manager) for managing Node.js versions
 - **install-rust.sh**: Installs Rust toolchain via rustup, including rust-analyzer
 

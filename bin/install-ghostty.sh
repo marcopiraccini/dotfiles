@@ -61,52 +61,58 @@ if ! command -v curl &> /dev/null && ! command -v wget &> /dev/null; then
     exit 1
 fi
 
-if ! command -v tar &> /dev/null; then
-    echo -e "${YELLOW}Installing tar...${NC}"
-    sudo apt install -y tar
-fi
-
-echo -e "${BLUE}Fetching latest Ghostty release...${NC}"
-
-# Get latest release info from GitHub API
-LATEST_RELEASE=$(curl -s https://api.github.com/repos/ghostty-org/ghostty/releases/latest)
-LATEST_VERSION=$(echo "$LATEST_RELEASE" | grep '"tag_name":' | sed -E 's/.*"tag_name": "([^"]+)".*/\1/')
-
-if [ -z "$LATEST_VERSION" ]; then
-    echo -e "${RED}✗ Failed to fetch latest release${NC}"
-    echo "Please check: https://ghostty.org/download"
+# dpkg should be available on Debian/Ubuntu systems
+if ! command -v dpkg &> /dev/null; then
+    echo -e "${RED}✗ dpkg is not available${NC}"
+    echo "This script is designed for Debian/Ubuntu systems"
     exit 1
 fi
 
-echo -e "${GREEN}✓ Latest version: ${LATEST_VERSION}${NC}"
-echo ""
+echo -e "${BLUE}Fetching Ghostty release...${NC}"
 
-# Look for the correct binary for this architecture
-# Common patterns: ghostty-linux-x86_64.tar.gz, ghostty-${VERSION}-linux-x86_64.tar.gz
-ASSETS=$(echo "$LATEST_RELEASE" | grep -o '"browser_download_url": "[^"]*"' | grep -o 'https://[^"]*')
+# Use ghostty-ubuntu repo which provides pre-built Linux binaries
+REPO="mkasberg/ghostty-ubuntu"
+LATEST_RELEASE=$(curl -s https://api.github.com/repos/${REPO}/releases/latest)
+LATEST_VERSION=$(echo "$LATEST_RELEASE" | grep '"tag_name":' | sed -E 's/.*"tag_name": "([^"]+)".*/\1/')
 
-# Try to find matching architecture
-DOWNLOAD_URL=$(echo "$ASSETS" | grep -i "linux" | grep -i "${GHOSTTY_ARCH}" | grep -E '\.(tar\.gz|tgz)$' | head -n 1)
-
-if [ -z "$DOWNLOAD_URL" ]; then
-    # Try alternative pattern without explicit "linux" in filename
-    DOWNLOAD_URL=$(echo "$ASSETS" | grep "${GHOSTTY_ARCH}" | grep -E '\.(tar\.gz|tgz)$' | head -n 1)
+if [ -z "$LATEST_VERSION" ]; then
+    echo -e "${RED}✗ Failed to fetch releases${NC}"
+    echo "Please check: https://github.com/${REPO}/releases"
+    exit 1
 fi
 
+echo -e "${GREEN}✓ Found release: ${LATEST_VERSION}${NC}"
+echo ""
+
+# Look for .deb package for this architecture
+ASSETS=$(echo "$LATEST_RELEASE" | grep -o '"browser_download_url": "[^"]*"' | grep -o 'https://[^"]*')
+
+# Find .deb package matching architecture
+# Debian package naming: ghostty_1.2.3_amd64.deb or similar
+case $GHOSTTY_ARCH in
+    x86_64)
+        DEB_ARCH="amd64"
+        ;;
+    aarch64)
+        DEB_ARCH="arm64"
+        ;;
+esac
+
+DOWNLOAD_URL=$(echo "$ASSETS" | grep "\.deb$" | grep -i "${DEB_ARCH}" | head -n 1)
+
 if [ -z "$DOWNLOAD_URL" ]; then
-    echo -e "${RED}✗ No pre-built binary found for ${GHOSTTY_ARCH}${NC}"
+    echo -e "${RED}✗ No .deb package found for ${DEB_ARCH}${NC}"
     echo ""
-    echo "Available assets for this release:"
+    echo "Available packages for this release:"
     echo "$ASSETS" | while read url; do
         echo "  - $(basename "$url")"
     done
     echo ""
-    echo "Please visit: https://ghostty.org/download"
-    echo "Or check: https://github.com/ghostty-org/ghostty/releases/latest"
+    echo "Please check: https://github.com/${REPO}/releases"
     exit 1
 fi
 
-echo -e "${GREEN}✓ Found binary: $(basename "$DOWNLOAD_URL")${NC}"
+echo -e "${GREEN}✓ Found package: $(basename "$DOWNLOAD_URL")${NC}"
 echo ""
 
 # Download
@@ -115,12 +121,12 @@ TMP_DIR=$(mktemp -d)
 cd "$TMP_DIR"
 
 if command -v curl &> /dev/null; then
-    curl -L "$DOWNLOAD_URL" -o ghostty.tar.gz
+    curl -L "$DOWNLOAD_URL" -o ghostty.deb
 else
-    wget "$DOWNLOAD_URL" -O ghostty.tar.gz
+    wget "$DOWNLOAD_URL" -O ghostty.deb
 fi
 
-if [ ! -f "ghostty.tar.gz" ]; then
+if [ ! -f "ghostty.deb" ]; then
     echo -e "${RED}✗ Download failed${NC}"
     rm -rf "$TMP_DIR"
     exit 1
@@ -129,30 +135,15 @@ fi
 echo -e "${GREEN}✓ Download complete${NC}"
 echo ""
 
-# Extract
-echo -e "${BLUE}Extracting archive...${NC}"
-tar -xzf ghostty.tar.gz
+# Install with dpkg
+echo -e "${BLUE}Installing .deb package...${NC}"
+sudo dpkg -i ghostty.deb
 
-# Find the ghostty binary (it might be in a subdirectory)
-GHOSTTY_BIN=$(find . -name "ghostty" -type f -executable | head -n 1)
-
-if [ -z "$GHOSTTY_BIN" ]; then
-    echo -e "${RED}✗ Could not find ghostty binary in archive${NC}"
-    echo "Archive contents:"
-    tar -tzf ghostty.tar.gz | head -20
-    cd "$HOME"
-    rm -rf "$TMP_DIR"
-    exit 1
+# Fix any missing dependencies
+if [ $? -ne 0 ]; then
+    echo -e "${YELLOW}Fixing missing dependencies...${NC}"
+    sudo apt-get install -f -y
 fi
-
-echo -e "${GREEN}✓ Found binary: ${GHOSTTY_BIN}${NC}"
-echo ""
-
-# Install
-echo -e "${BLUE}Installing to ~/.local/bin...${NC}"
-mkdir -p "$HOME/.local/bin"
-cp "$GHOSTTY_BIN" "$HOME/.local/bin/ghostty"
-chmod +x "$HOME/.local/bin/ghostty"
 
 # Clean up
 cd "$HOME"
@@ -169,14 +160,13 @@ echo ""
 
 if command -v ghostty &> /dev/null; then
     GHOSTTY_VERSION=$(ghostty --version 2>/dev/null || echo "installed")
-    echo -e "${GREEN}✓ Ghostty ${GHOSTTY_VERSION}${NC}"
-    echo "Installed to: $HOME/.local/bin/ghostty"
+    echo -e "${GREEN}✓ Ghostty installed successfully${NC}"
+    echo ""
+    echo "Version info:"
+    ghostty --version 2>/dev/null | head -10 || echo "  $(ghostty --version 2>&1 | head -1)"
 else
     echo -e "${YELLOW}⚠ Ghostty installed but not in PATH${NC}"
-    echo "Installed to: $HOME/.local/bin/ghostty"
-    echo ""
-    echo "Add to PATH (already in .zshrc):"
-    echo "  export PATH=\$HOME/.local/bin:\$PATH"
+    echo "You may need to restart your terminal"
 fi
 
 echo ""
@@ -191,5 +181,3 @@ echo "  - Keybindings matching Kitty"
 echo ""
 echo "To run Ghostty:"
 echo "  ghostty"
-echo ""
-echo -e "${BLUE}Note: You may need to restart your terminal for PATH changes to take effect${NC}"
