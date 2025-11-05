@@ -68,27 +68,55 @@ case $REPLY in
         echo ""
 
         # Create symbolic links
-        echo -e "${BLUE}Creating desktop integration...${NC}"
+        echo -e "${BLUE}Setting up desktop integration...${NC}"
+        echo ""
 
         # Ensure directories exist
         mkdir -p ~/.local/bin
         mkdir -p ~/.local/share/applications
+        mkdir -p ~/.local/share/icons/hicolor
 
-        # Create symlinks if they don't exist
-        if [ ! -e "$HOME/.local/bin/kitty" ]; then
-            ln -sf ~/.local/kitty.app/bin/kitty ~/.local/bin/
-        fi
+        # Create symlink to kitty binary
+        echo -e "${BLUE}Creating symlink to kitty...${NC}"
+        ln -sf ~/.local/kitty.app/bin/kitty ~/.local/bin/kitty
+        echo -e "${GREEN}✓ Symlink created: ~/.local/bin/kitty${NC}"
 
         # Create desktop file
-        if [ ! -e "$HOME/.local/share/applications/kitty.desktop" ]; then
-            cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/ 2>/dev/null || true
+        echo -e "${BLUE}Installing desktop file...${NC}"
+        if [ -f ~/.local/kitty.app/share/applications/kitty.desktop ]; then
+            cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
+
+            # Update desktop file to use correct paths
+            sed -i "s|Icon=kitty|Icon=$HOME/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty.desktop
+            sed -i "s|Exec=kitty|Exec=$HOME/.local/bin/kitty|g" ~/.local/share/applications/kitty.desktop
+
+            echo -e "${GREEN}✓ Desktop file installed${NC}"
+        else
+            echo -e "${YELLOW}⚠ Desktop file not found in kitty installation${NC}"
+        fi
+
+        # Copy icons
+        echo -e "${BLUE}Installing icons...${NC}"
+        if [ -d ~/.local/kitty.app/share/icons ]; then
+            cp -r ~/.local/kitty.app/share/icons/hicolor ~/.local/share/icons/ 2>/dev/null || true
+            echo -e "${GREEN}✓ Icons installed${NC}"
         fi
 
         # Update desktop database
         if command -v update-desktop-database &> /dev/null; then
+            echo -e "${BLUE}Updating desktop database...${NC}"
             update-desktop-database ~/.local/share/applications/ 2>/dev/null || true
+            echo -e "${GREEN}✓ Desktop database updated${NC}"
         fi
 
+        # Update icon cache
+        if command -v gtk-update-icon-cache &> /dev/null; then
+            echo -e "${BLUE}Updating icon cache...${NC}"
+            gtk-update-icon-cache -f -t ~/.local/share/icons/hicolor 2>/dev/null || true
+            echo -e "${GREEN}✓ Icon cache updated${NC}"
+        fi
+
+        echo ""
         echo -e "${GREEN}✓ Desktop integration complete${NC}"
         ;;
 
